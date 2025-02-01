@@ -1,6 +1,6 @@
 import accessControl from "../libs/accesscontrol/accesscontrol"
 
-export function createUserMiddleware (req, res, next) {
+export function createUserMiddleware (req:any, res:any, next:any) {
     try {
         const { id: userId } = req.params;
         const { role: userRole } = req.user || "none";
@@ -21,6 +21,6 @@ export function createUserMiddleware (req, res, next) {
 
 
 
-export function getUserListMiddleWare(req , res ,next){
+export function getUserListMiddleWare(req :any , res:any ,next:any){
     next()
 }

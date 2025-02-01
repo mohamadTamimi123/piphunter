@@ -1,5 +1,5 @@
 import passport from "passport";
-import {Ticket} from "../../config/db";
+
 import {createNewTicket, getTicketList, sendAllTicket, sendUserTicket} from "../api/ticket.api";
 
 export const newTicket = [
