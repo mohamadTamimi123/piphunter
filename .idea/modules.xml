@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/backend-app.iml" filepath="$PROJECT_DIR$/.idea/backend-app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../ui/next-pages-template/.idea/next-pages-template.iml" filepath="$PROJECT_DIR$/../ui/next-pages-template/.idea/next-pages-template.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../propy-panel/.idea/propy-panel.iml" filepath="$PROJECT_DIR$/../propy-panel/.idea/propy-panel.iml" />
+    </modules>
+  </component>
+</project>
