@@ -23,7 +23,7 @@ jobs:
 
       - name: Add server to known hosts
         run: |
-          ssh-keyscan -H 68.66.251.93 -p 7822 >> ~/.ssh/known_hosts
+          ssh-keyscan -H 68.66.251.93 >> ~/.ssh/known_hosts
 
       - name: Deploy to server
         run: |
