@@ -1,24 +1,31 @@
-# This workflow will do a clean installation of node dependencies, cache/restore them, build the source code and run tests across different versions of node
-# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-nodejs
+name: Deploy to Ubuntu Server
 
-name: Node.js CI
-on: [push]
+on:
+  push:
+    branches:
+      - main  # یا هر شاخه‌ای که می‌خواهید روی آن دپلی کنید
+
 jobs:
-  build:
-
+  deploy:
     runs-on: ubuntu-latest
-
-    strategy:
-      matrix:
-        node-version: [22.x]
-        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
-
     steps:
-      - uses: actions/checkout@v4
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v4
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Deploy to server
+        uses: appleboy/ssh-action@master
         with:
-          node-version: ${{ matrix.node-version }}
-          cache: 'npm'
-      - run: npm i
-      - run: npm run start:dev
+          host: ${{ secrets.SERVER_HOST }}
+          port : ${{ secrets.PORT }}
+          username: ${{ secrets.SERVER_USERNAME }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          script: |
+            mkdir -p /var/www/html/myproject
+            rsync -avz ./ /var/www/html/myproject/
+            # دستورات اضافی برای نصب وابستگی ها و یا اجرای پروژه می تواند اینجا اضافه شود
+            # مثلا:
+            # cd /var/www/html/myproject
+            # sudo apt-get update && sudo apt-get install -y nodejs npm  (برای نصب nodejs و npm)
+            # npm install  (برای نصب وابستگی های پروژه)
+            # sudo systemctl restart nginx # یا هر سرویس دیگری که پروژه شما از آن استفاده می‌کند.
+
