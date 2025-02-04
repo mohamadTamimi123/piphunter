@@ -15,10 +15,10 @@ jobs:
       - name: Deploy to server
         uses: appleboy/ssh-action@master
         with:
-          host: ${{ secrets.SERVER_HOST }}
-          port : ${{ secrets.PORT }}
-          username: ${{ secrets.SERVER_USERNAME }}
-          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          host: 68.66.251.93
+          port : 7822
+          username: root
+          key: d9de659eeac2dfde
           script: |
             mkdir -p /var/www/html/myproject
             rsync -avz ./ /var/www/html/myproject/
