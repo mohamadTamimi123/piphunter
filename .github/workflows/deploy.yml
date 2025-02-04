@@ -16,9 +16,9 @@ jobs:
         uses: appleboy/ssh-action@master
         with:
           host: 68.66.251.93
-          port : 7822
           username: root
-          key: d9de659eeac2dfde
+          password: d9de659eeac2dfde
+          port : 7822
           script: |
             mkdir -p /var/www/html/myproject
             rsync -avz ./ /var/www/html/myproject/
