@@ -20,8 +20,8 @@ jobs:
           password: d9de659eeac2dfde
           port : 7822
           script: |
-            mkdir -p /var/www/html/myproject
-            rsync -avz ./ /var/www/html/myproject/
+            mkdir -p /newF
+            rsync -avz ./ /newF/
             # دستورات اضافی برای نصب وابستگی ها و یا اجرای پروژه می تواند اینجا اضافه شود
             # مثلا:
             # cd /var/www/html/myproject
